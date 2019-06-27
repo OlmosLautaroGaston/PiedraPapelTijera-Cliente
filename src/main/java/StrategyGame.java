@@ -6,7 +6,7 @@ public class StrategyGame {
     private Scanner scanner = new Scanner(System.in);
 
     public StrategyGame() {
-        System.out.println("*** Juego Piedra Papel y Tijera ***");
+        System.out.println("*** Juego Piedra Papel y Tijera - Cliente ***");
         System.out.println("*** Elige una opción ***");
     }
 
@@ -22,7 +22,7 @@ public class StrategyGame {
     }
 
     public void logicGame() {
-        System.out.println("ordenador " + ordenador);
+        System.out.println("Maquina Servidor eligió : " + ordenador);
         if (usuario.equals(ordenador)) {
             System.out.println("\n** Empate **\n");
         } else {
