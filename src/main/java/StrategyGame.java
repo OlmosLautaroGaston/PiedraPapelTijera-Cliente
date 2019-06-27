@@ -8,41 +8,29 @@ public class StrategyGame {
     public StrategyGame() {
         System.out.println("*** Juego Piedra Papel y Tijera ***");
         System.out.println("*** Elige una opción ***");
-        usuario = scanner.next();
     }
 
-    public void validateInput() {
+
+    public String validateInput() {
+        usuario = scanner.next();
         if (!usuario.equals("piedra") && !usuario.equals("papel") && !usuario.equals("tijera")) {
             System.out.println("*** La opción ingresada es incorrecta, intenta con 'piedra', 'papel' o 'tijera' ***");
         } else {
-            aleatorio = (byte) (Math.random() * 3);
-            switch (aleatorio) {
-                case 0:
-                    ordenador = "piedra";
-                    break;
-                case 1:
-                    ordenador = "papel";
-                    break;
-                case 2:
-                    ordenador = "tijera";
-                    break;
-            }
-
+            System.out.println("Elejiste "+usuario);
         }
-        System.out.println("ordenador " + ordenador);
+        return usuario;
     }
 
-    public void logicGame(){
-        if(usuario.equals(ordenador)){
+    public void logicGame() {
+        System.out.println("ordenador " + ordenador);
+        if (usuario.equals(ordenador)) {
             System.out.println("\n** Empate **\n");
-        }else{
+        } else {
             if ((usuario.equals("piedra") && ordenador.equals("papel"))
                     || (usuario.equals("papel") && ordenador.equals("tijera"))
-                    || (usuario.equals("tijera") && ordenador.equals("piedra")))
-            {
+                    || (usuario.equals("tijera") && ordenador.equals("piedra"))) {
                 System.out.println("\n** Perdite **\n");
-            }
-            else{
+            } else {
                 System.out.println("\n** Ganaste **\n");
             }
         }
