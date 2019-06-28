@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class StrategyGame {
-    private byte aleatorio;
     private String usuario = "", ordenador = "";
     private Scanner scanner = new Scanner(System.in);
 
@@ -10,18 +9,23 @@ public class StrategyGame {
         System.out.println("*** Elige una opción ***");
     }
 
-
-    public String validateInput() {
+    public String readData() {
         usuario = scanner.next();
-        if (!usuario.equals("piedra") && !usuario.equals("papel") && !usuario.equals("tijera")) {
-            System.out.println("*** La opción ingresada es incorrecta, intenta con 'piedra', 'papel' o 'tijera' ***");
-        } else {
-            System.out.println("Elejiste "+usuario);
-        }
         return usuario;
     }
 
-    public void logicGame() {
+    public boolean validateInput() {
+        boolean i = false;
+        if (!usuario.equals("piedra") && !usuario.equals("papel") && !usuario.equals("tijera")) {
+            System.out.println("*** La opción ingresada es incorrecta, intenta con 'piedra', 'papel' o 'tijera' ***");
+        } else {
+            i = true;
+            System.out.println("Elejiste " + usuario);
+        }
+        return i;
+    }
+
+    public void logicGame(String ordenador) {
         System.out.println("Maquina Servidor eligió : " + ordenador);
         if (usuario.equals(ordenador)) {
             System.out.println("\n** Empate **\n");
